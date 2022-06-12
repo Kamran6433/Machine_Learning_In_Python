@@ -1,7 +1,9 @@
+import random
+
 # Randomly generated lists
-
-
-listOfBooks = [1,2,3,4,5,6]
+listOfBooks = []
+for i in range(10):
+    listOfBooks.append(random.randrange(1, 10))
 
 listOfNumbers = list(range(0, 101, 10))
 
@@ -11,7 +13,7 @@ print(type(listOfBooks))
 # Operations on Lists:
 
 # -1 index is the last element. Then it counts down form the end for numbers before -1:
-print(listOfBooks[-6])
+print(listOfBooks[0])
 # Slice (first element : last element)
 print("Slice from 2nd element to the 4th element:")
 print(listOfBooks[2:5])
