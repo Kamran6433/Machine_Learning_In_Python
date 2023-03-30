@@ -1,0 +1,27 @@
+1. Perhaps Learn some MATH:
+- Multivariable Calculus
+- Differential Equations
+- Linear Algebra
+- Statisitcs Probability
+
+2. Learn Python more than the beginner level and R is also used
+
+3. ML Tech Stacks:
+NumPy
+Pandas
+Matplotlib
+    Deeplearning Frameworks:
+        TensorFlow
+        Keras
+        PyTorch
+
+4. ML course
+
+5. Hands on and Data Preperation:
+Kaggle has free resources on their website
+
+6. PRACTICE AND PRACTICE AND BUILD A PORTFOLIO
+Can practice on Keggle to complete the competitions and build a portoflio
+
+
+Create advertisement that users are most likely to click on and use that data to make better advertisement.
