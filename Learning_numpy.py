@@ -5,11 +5,11 @@ import torch
 
 
 def main():
-    print("hello world")
     get_version()
     basics_of_numpy()
     accessing_changing_specific_elements()
     initialising_different_arrays()
+    mathematics_in_numpy()
 
 
 def get_version():
@@ -18,6 +18,7 @@ def get_version():
     print("pandas version: ", pandas.__version__)
     print("numpy version: ", numpy.__version__)
 
+# ||-------------------------------------------------------------------------------------------------------------------||
 
 # NUMPY: arrays || mathematics || plotting || backend || machine learning
 # Numpy is a multidimensional array library, you can use numpy to store all types of data in 1D, 2D, 3D, 4D arrays etc.
@@ -27,8 +28,12 @@ def get_version():
 # Python lists checks each element for types whereas upy does not do that.
 # Numpy utilises contiguous memory - CPU performs more efficiently with numpy - More effectively utilises cache.
 
+# ||-------------------------------------------------------------------------------------------------------------------||
+
 
 def basics_of_numpy():
+    print("||-------------------------------------------BASICS----------------------------------------------||")
+
     array1d = numpy.array([12, 76, 88, 9, 1, 1, 1], dtype='int16')
     print("1D array: ", array1d)
 
@@ -72,8 +77,11 @@ def basics_of_numpy():
     print("array2d total size (bytes): ", array2d.nbytes)
     print("array3d total size (bytes): ", array3d.nbytes)
 
+# ||-------------------------------------------------------------------------------------------------------------------||
+
 
 def accessing_changing_specific_elements():
+    print("||-------------------------------------------ACCESSING----------------------------------------------||")
 
     numpy_array = numpy.array([
         [1, 2, 3, 4, 5, 6, 7],
@@ -89,8 +97,11 @@ def accessing_changing_specific_elements():
     numpy_array[1, 5] = 999
     print(numpy_array)
 
+# ||-------------------------------------------------------------------------------------------------------------------||
+
 
 def initialising_different_arrays():
+    print("||-------------------------------------------INITIALISATION----------------------------------------------||")
 
     scalar = numpy.ones(1)  # All 1 tensor
     print("Scalar: ", scalar)
@@ -127,8 +138,32 @@ def initialising_different_arrays():
     ones = numpy.ones((7, 7))
     zeros = numpy.zeros((5, 5))
 
-    ones[1:-1, 1:-1] = zeros  # <- From the second element to the second last element
+    ones[1:-1, 1:-1] = zeros  # <- From the second element to the sec ond last element
     print("Filling the middle with zeros: ", ones)
+
+# ||-------------------------------------------------------------------------------------------------------------------||
+
+
+def mathematics_in_numpy():
+    print("||-------------------------------------------MATHMATICS----------------------------------------------||")
+
+    example_array = numpy.array([10, 10, 10, 10, 10])
+    print("Example array = ", example_array)
+    print(example_array + 10)
+    print(example_array - 10)
+    print(example_array * 10)
+    print(example_array / 10)
+    print(example_array ** 4)
+    print(numpy.sin(example_array))
+    print(numpy.cos(example_array))
+    print(numpy.tan(example_array))
+    # For a lot more (https://docs.scipy.org/doc/numpy/reference/routines.math.html)
+
+    # Linear Algebra:
+    a = numpy.ones((5, 3))
+    b = numpy.full((3, 5), 7)
+
+    print(numpy.matmul(a, b))
 
 
 if __name__ == "__main__":
