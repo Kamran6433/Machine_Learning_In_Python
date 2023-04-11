@@ -8,6 +8,8 @@ def main():
     print("hello world")
     get_version()
     basics_of_numpy()
+    accessing_changing_specific_elements()
+    initialising_different_arrays()
 
 
 def get_version():
@@ -69,6 +71,64 @@ def basics_of_numpy():
     print("array1d total size (bytes): ", array1d.nbytes)
     print("array2d total size (bytes): ", array2d.nbytes)
     print("array3d total size (bytes): ", array3d.nbytes)
+
+
+def accessing_changing_specific_elements():
+
+    numpy_array = numpy.array([
+        [1, 2, 3, 4, 5, 6, 7],
+        [8, 9, 10, 11, 12, 13, 14]])
+
+    # Getting a specific element [row, column]:
+    print(numpy_array[1, 5])  # Row and column start at index 0.
+    print(numpy_array[1, -2])  # numpy_array has two rows therefore, the first index can only be 0 or 1 or -1
+    print(numpy_array[-1, -2])
+    print(numpy_array[0, :])  # This prints out the entire first row
+    print(numpy_array[:, 0])  # this prints out all the rows first element
+
+    numpy_array[1, 5] = 999
+    print(numpy_array)
+
+
+def initialising_different_arrays():
+
+    scalar = numpy.ones(1)  # All 1 tensor
+    print("Scalar: ", scalar)
+
+    vector = numpy.zeros(5)  # All 0 tensor
+    print("Vector: ", vector)
+
+    matrix = numpy.ones((5, 5), dtype='int16')
+    print("Matrix: ", matrix)
+
+    tensor = numpy.zeros((5, 5, 5), dtype='float32')
+    print("Tensor: ", tensor)
+
+    # tensor4d = numpy.ones((5, 5, 5, 5))
+    # print("Tensor 4D: ", tensor4d)
+
+    other_number_tensor = numpy.full((2, 2, 2, 2), 99, dtype='int16')
+    print(other_number_tensor)
+
+    random_array = numpy.random.rand(4, 2)
+    print("Random array: ", random_array)
+    random_sample_array = numpy.random.random_sample(tensor.shape)  # Takes the shape of a created array and makes the values random
+    print("Random sample array: ", random_sample_array)
+
+    # Random integer values randint(range of value, size=())
+    random_int_array = numpy.random.randint(10, size=(3, 3, 3))
+    print("Random Integer array: ", random_int_array)
+
+    # Identity matrix:
+    identity_matrix = numpy.identity(7)
+    print("Identity Matrix: ", identity_matrix)
+
+    # Filling a matrix with zeros:
+    ones = numpy.ones((7, 7))
+    zeros = numpy.zeros((5, 5))
+
+    ones[1:-1, 1:-1] = zeros  # <- From the second element to the second last element
+    print("Filling the middle with zeros: ", ones)
 
 
 if __name__ == "__main__":
