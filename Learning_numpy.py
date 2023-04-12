@@ -14,6 +14,7 @@ def main():
     mathematics_in_numpy()
     statistics_in_numpy()
     reorganising_arrays()
+    miscellaneous()
 
 
 def get_version():
@@ -212,6 +213,22 @@ def reorganising_arrays():
 
     hstacked_vectors = numpy.hstack([vector1, vector2, vector1, vector2])
     print("Horizontally stacking the two vectors:\n", hstacked_vectors)
+
+
+def miscellaneous():
+    print("||-------------------------------------------MISCELLANEOUS----------------------------------------------||")
+
+    # Loading data from a file
+    filedata = numpy.genfromtxt('./Data/numbers.txt', delimiter=',')
+    filedata = filedata.astype('int16')
+    print("FILE DATA:\n", filedata)
+
+    # Boolean masking and advanced indexing
+    print("Boolean Masking:\n", filedata > 50)
+    print("Advanced Indexing:\n", filedata[filedata > 50])
+
+    print(numpy.any((filedata > 50) & (filedata < 100), axis=0))  # Are any of the values in the column greater than 50 AND less than 100?
+    # Answer should be 17 booleans as there are 17 columns in the data
 
 
 if __name__ == "__main__":
