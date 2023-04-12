@@ -3,6 +3,8 @@ import pandas
 import matplotlib.pyplot
 import torch
 
+# For numpy documentation: [ https://numpy.org/doc/ ]
+
 
 def main():
     get_version()
@@ -10,6 +12,8 @@ def main():
     accessing_changing_specific_elements()
     initialising_different_arrays()
     mathematics_in_numpy()
+    statistics_in_numpy()
+    reorganising_arrays()
 
 
 def get_version():
@@ -41,7 +45,7 @@ def basics_of_numpy():
         [1, 4, 55, 66],
         [98, 8, 57, 14]
     ], dtype='float32')  # The multidimensional arrays must be of same size.
-    print("2D array: ", array2d)
+    print("2D array:\n", array2d)
 
     array3d = numpy.array([[
         [1.6, 7.3, 5.5],
@@ -50,7 +54,7 @@ def basics_of_numpy():
         [[5.6, 76.2, 1.1],
          [99.9, 20.6, 4.6]
          ]])  # The multidimensional arrays must be of same size.
-    print("3D array ", array3d)
+    print("3D array:\n", array3d)
 
     # Getting the dimensions of arrays ^:
     print("array1d dimensions: ", array1d.ndim)
@@ -110,10 +114,10 @@ def initialising_different_arrays():
     print("Vector: ", vector)
 
     matrix = numpy.ones((5, 5), dtype='int16')
-    print("Matrix: ", matrix)
+    print("Matrix:\n", matrix)
 
     tensor = numpy.zeros((5, 5, 5), dtype='float32')
-    print("Tensor: ", tensor)
+    print("Tensor:\n", tensor)
 
     # tensor4d = numpy.ones((5, 5, 5, 5))
     # print("Tensor 4D: ", tensor4d)
@@ -124,22 +128,22 @@ def initialising_different_arrays():
     random_array = numpy.random.rand(4, 2)
     print("Random array: ", random_array)
     random_sample_array = numpy.random.random_sample(tensor.shape)  # Takes the shape of a created array and makes the values random
-    print("Random sample array: ", random_sample_array)
+    print("Random sample array:\n", random_sample_array)
 
     # Random integer values randint(range of value, size=())
     random_int_array = numpy.random.randint(10, size=(3, 3, 3))
-    print("Random Integer array: ", random_int_array)
+    print("Random Integer array:\n", random_int_array)
 
     # Identity matrix:
     identity_matrix = numpy.identity(7)
-    print("Identity Matrix: ", identity_matrix)
+    print("Identity Matrix:\n", identity_matrix)
 
     # Filling a matrix with zeros:
     ones = numpy.ones((7, 7))
     zeros = numpy.zeros((5, 5))
 
     ones[1:-1, 1:-1] = zeros  # <- From the second element to the sec ond last element
-    print("Filling the middle with zeros: ", ones)
+    print("Filling the middle with zeros:\n", ones)
 
 # ||-------------------------------------------------------------------------------------------------------------------||
 
@@ -157,13 +161,57 @@ def mathematics_in_numpy():
     print(numpy.sin(example_array))
     print(numpy.cos(example_array))
     print(numpy.tan(example_array))
-    # For a lot more (https://docs.scipy.org/doc/numpy/reference/routines.math.html)
+    # For a lot more: [ https://docs.scipy.org/doc/numpy/reference/routines.math.html ]
 
     # Linear Algebra:
     a = numpy.ones((5, 3))
     b = numpy.full((3, 5), 7)
 
-    print(numpy.matmul(a, b))
+    print("Multiplying two tensors using matmul(a, b):\n", numpy.matmul(a, b))
+    # For a lot more: [ https://docs.scipy.org/doc/numpy/reference/routines.linalg.html ]
+
+
+def statistics_in_numpy():
+    print("||-------------------------------------------STATISTICS----------------------------------------------||")
+
+    stats = numpy.array([[5, 7, 99, 100], [3, 86, 1000, 1]])
+    print(stats)
+
+    print("Minimum of the array: ", numpy.min(stats))
+    print("Maximum of the array: ", numpy.max(stats))
+
+    sum_of_array = numpy.sum(stats)
+    print("Sum of the array: ", sum_of_array)
+    # For a lot more: [ https://docs.scipy.org/doc/numpy/reference/routines.statistics.html ]
+    # With statistics you can perform the mean, mode, median, average, standard deviation and variance.Also, a lot more.
+
+
+def reorganising_arrays():
+    print("||-------------------------------------------REORGANISING----------------------------------------------||")
+
+    before = numpy.array([[1, 2, 3, 4], [5, 6, 7, 8]])
+    print("Before: ", before)
+
+    after = before.reshape((2, 2, 2))  # Cannot be mismatching the shape of the array.
+    print("After the reshape:\n", after)
+
+    # Vertically stacking vectors:
+    vector1 = numpy.array([44, 44, 44, 44])  # Both arrays much match in COLUMN size before stacking
+    print("Vector 1: ", vector1)
+    vector2 = numpy.array([77, 77, 77, 77])
+    print("Vector 2: ", vector2)
+
+    vstacked_vectors = numpy.vstack([vector1, vector2, vector1, vector2])
+    print("Vertically stacking the two vectors:\n", vstacked_vectors)
+
+    # Horizontally stacking vectors:
+    vector3 = numpy.ones([2, 4])  # Both arrays much match in ROW size before stacking
+    print("Vector 3:\n", vector3)
+    vector4 = numpy.zeros([2, 3])
+    print("Vector 4:\n", vector4)
+
+    hstacked_vectors = numpy.hstack([vector1, vector2, vector1, vector2])
+    print("Horizontally stacking the two vectors:\n", hstacked_vectors)
 
 
 if __name__ == "__main__":
