@@ -1,9 +1,6 @@
 import numpy
-import pandas
-import matplotlib.pyplot
-import torch
 
-# For numpy documentation: [ https://numpy.org/doc/ ]
+# For full numpy documentation: [ https://numpy.org/doc/ ]
 
 
 def main():
@@ -18,9 +15,6 @@ def main():
 
 
 def get_version():
-    print("torch version: ", torch.__version__)
-    print("matplotlib version: ", matplotlib._get_version())
-    print("pandas version: ", pandas.__version__)
     print("numpy version: ", numpy.__version__)
 
 # ||-------------------------------------------------------------------------------------------------------------------||
