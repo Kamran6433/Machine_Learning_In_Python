@@ -14,7 +14,7 @@ def get_version():
 
 # PANDAS: data || machine learning
 # pandas provide high performance, easy-to-use data structures and data analysis tools for Python.
-# pandas allows you to work with a lot larger datasets (Big Data).
+# pandas allow you to work with a lot larger datasets (Big Data).
 
 # ||-------------------------------------------------------------------------------------------------------------------||
 
