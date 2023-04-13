@@ -31,7 +31,7 @@ def get_version():
 
 
 def basics_of_numpy():
-    print("||-------------------------------------------BASICS----------------------------------------------||")
+    print("\n||-------------------------------------------BASICS----------------------------------------------||\n")
 
     array1d = numpy.array([12, 76, 88, 9, 1, 1, 1], dtype='int16')
     print("1D array: ", array1d)
@@ -80,7 +80,7 @@ def basics_of_numpy():
 
 
 def accessing_changing_specific_elements():
-    print("||-------------------------------------------ACCESSING----------------------------------------------||")
+    print("\n||-------------------------------------------ACCESSING----------------------------------------------||\n")
 
     numpy_array = numpy.array([
         [1, 2, 3, 4, 5, 6, 7],
@@ -100,7 +100,7 @@ def accessing_changing_specific_elements():
 
 
 def initialising_different_arrays():
-    print("||-------------------------------------------INITIALISATION----------------------------------------------||")
+    print("\n||-----------------------------------------INITIALISATION--------------------------------------------||\n")
 
     scalar = numpy.ones(1)  # All 1 tensor
     print("Scalar: ", scalar)
@@ -144,7 +144,7 @@ def initialising_different_arrays():
 
 
 def mathematics_in_numpy():
-    print("||-------------------------------------------MATHMATICS----------------------------------------------||")
+    print("\n||-------------------------------------------MATHMATICS----------------------------------------------||\n")
 
     example_array = numpy.array([10, 10, 10, 10, 10])
     print("Example array = ", example_array)
@@ -167,7 +167,7 @@ def mathematics_in_numpy():
 
 
 def statistics_in_numpy():
-    print("||-------------------------------------------STATISTICS----------------------------------------------||")
+    print("\n||-----------------------------------------STATISTICS----------------------------------------------||\n")
 
     stats = numpy.array([[5, 7, 99, 100], [3, 86, 1000, 1]])
     print(stats)
@@ -182,7 +182,7 @@ def statistics_in_numpy():
 
 
 def reorganising_arrays():
-    print("||-------------------------------------------REORGANISING----------------------------------------------||")
+    print("\n||-----------------------------------------REORGANISING----------------------------------------------||\n")
 
     before = numpy.array([[1, 2, 3, 4], [5, 6, 7, 8]])
     print("Before: ", before)
@@ -210,7 +210,7 @@ def reorganising_arrays():
 
 
 def miscellaneous():
-    print("||-------------------------------------------MISCELLANEOUS----------------------------------------------||")
+    print("\n||-----------------------------------------MISCELLANEOUS----------------------------------------------||\n")
 
     # Loading data from a file
     filedata = numpy.genfromtxt('./Data/numbers.txt', delimiter=',')
