@@ -8,7 +8,7 @@ def main():
 
 
 def get_version():
-    print("numpy version: ", pandas.__version__)
+    print("pandas version: ", pandas.__version__)
 
 # ||-------------------------------------------------------------------------------------------------------------------||
 
@@ -17,6 +17,12 @@ def get_version():
 # pandas allow you to work with a lot larger datasets (Big Data).
 
 # ||-------------------------------------------------------------------------------------------------------------------||
+
+
+def loading_data():
+
+    data = pandas.read_csv('./Data/pokemon_data.csv')
+    print("Data from CSV:\n", data)
 
 
 if __name__ == "__main__":
