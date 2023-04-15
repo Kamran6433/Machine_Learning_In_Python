@@ -6,6 +6,7 @@ import pandas
 def main():
     get_version()
     loading_and_reading_data()
+    sorting_and_describing_data()
 
 
 def get_version():
@@ -24,7 +25,6 @@ def loading_and_reading_data():
     print("\n||-------------------------------------------LOADING----------------------------------------------||\n")
 
     # data_txt = pandas.read_csv('/Users/kamran/Projects/Machine_Learning_In_Python/Data/pokemon_data.txt', delimiter='\t')
-    data_csv = pandas.read_csv('/Users/kamran/Projects/Machine_Learning_In_Python/Data/pokemon_data.csv')
     data_xlsx = pandas.read_excel('/Users/kamran/Projects/Machine_Learning_In_Python/Data/pokemon_data.xlsx')
     # print(data_txt.to_string())
     # print(data_csv.to_string())
@@ -57,6 +57,24 @@ def loading_and_reading_data():
 
     # Reading all columns that are specific to something:
     # print(data_csv.loc[data_csv['Type 1'] == 'Fire'])  I do not know why this does not work.
+
+
+def sorting_and_describing_data():
+    print("\n||-------------------------------------------DESCRIBING----------------------------------------------||\n")
+
+    data_csv = get_data('/Users/kamran/Projects/Machine_Learning_In_Python/Data/pokemon_data.csv')
+
+    print("Describing the data:\n", data_csv.describe())
+
+    print("\n||-------------------------------------------SORTING----------------------------------------------||\n")
+
+    # Sorting the data specifically:
+    print("Sorting values in the data:\n", data_csv.sort_values(['Name', 'Type 1', 'HP'], ascending=False))  # ascending=[1,0]
+
+
+def get_data(file):
+    data = pandas.read_csv(file)
+    return data
 
 
 if __name__ == "__main__":
