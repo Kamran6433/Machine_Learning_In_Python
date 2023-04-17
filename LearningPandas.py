@@ -7,6 +7,7 @@ def main():
     get_version()
     loading_and_reading_data()
     sorting_and_describing_data()
+    making_changes_to_data()
 
 
 def get_version():
@@ -62,18 +63,52 @@ def loading_and_reading_data():
 def sorting_and_describing_data():
     print("\n||-------------------------------------------DESCRIBING----------------------------------------------||\n")
 
-    data_csv = get_data('/Users/kamran/Projects/Machine_Learning_In_Python/Data/pokemon_data.csv')
+    data_csv = get_csv_data('/Users/kamran/Projects/Machine_Learning_In_Python/Data/pokemon_data.csv')
 
-    print("Describing the data:\n", data_csv.describe())
+    # print("Describing the data:\n", data_csv.describe())
 
     print("\n||-------------------------------------------SORTING----------------------------------------------||\n")
 
     # Sorting the data specifically:
-    print("Sorting values in the data:\n", data_csv.sort_values(['Name', 'Type 1', 'HP'], ascending=False))  # ascending=[1,0]
+    # print("Sorting values in the data:\n", data_csv.sort_values(['Name', 'Type 1', 'HP'], ascending=False))  # ascending=[1,0]
 
 
-def get_data(file):
+def making_changes_to_data():
+    print("\n||-------------------------------------------CHANGING----------------------------------------------||\n")
+
+    data_csv = get_csv_data('/Users/kamran/Projects/Machine_Learning_In_Python/Data/pokemon_data.csv')
+
+    # Adding a column:
+    data_csv['Total'] = data_csv['HP'] + data_csv['Attack'] + data_csv['Defense'] + data_csv['Sp. Atk'] + data_csv['Sp. Def'] + data_csv['Speed']
+    # This can also be done like this:
+    data_csv['Total'] = data_csv.iloc[:, 4:10].sum(axis=1)
+
+    # for index, row in data_csv.iterrows():
+    #     print(index, row['Total'], row['Name'])
+
+    # Saving the data using teh saving_data function I created:
+    saving_data(data_csv, 'new_pokemon.csv')
+
+    print(data_csv.to_string())
+
+    # Removing a column:
+    data_csv = data_csv.drop(columns=['Total'])
+    print(data_csv.to_string())
+
+
+def saving_data(data, name_of_file):
+    # Saving as csv:
+    data.to_csv(name_of_file, index=False, sep=',')  # Separation would be \t if saving as .txt
+    print("Saved data as csv")
+
+    # Saving as Excel:
+    data.to_excel('new_pokemon.xlsx', index=False)
+    print("Saved data as Excel")
+
+
+def get_csv_data(file):
     data = pandas.read_csv(file)
+    data = data.convert_dtypes()
     return data
 
 
