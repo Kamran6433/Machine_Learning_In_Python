@@ -8,10 +8,20 @@ def main():
     loading_and_reading_data()
     sorting_and_describing_data()
     making_changes_to_data()
+    filtering_data()
+    conditional_changes_in_data()
+    aggregate_statistics()
 
 
 def get_version():
     print("pandas version: ", pandas.__version__)
+
+
+def get_csv_data(file):
+    data = pandas.read_csv(file)
+    data = data.convert_dtypes()
+    return data
+
 
 # ||-------------------------------------------------------------------------------------------------------------------||
 
@@ -63,7 +73,7 @@ def loading_and_reading_data():
 def sorting_and_describing_data():
     print("\n||-------------------------------------------DESCRIBING----------------------------------------------||\n")
 
-    data_csv = get_csv_data('/Users/kamran/Projects/Machine_Learning_In_Python/Data/pokemon_data.csv')
+    # data_csv = get_csv_data('/Users/kamran/Projects/Machine_Learning_In_Python/Data/pokemon_data.csv')
 
     # print("Describing the data:\n", data_csv.describe())
 
@@ -106,10 +116,35 @@ def saving_data(data, name_of_file):
     print("Saved data as Excel")
 
 
-def get_csv_data(file):
-    data = pandas.read_csv(file)
-    data = data.convert_dtypes()
-    return data
+def filtering_data():
+    print("\n||-------------------------------------------FILTERING----------------------------------------------||\n")
+
+    data_csv = get_csv_data('/Users/kamran/Projects/Machine_Learning_In_Python/Data/pokemon_data.csv')
+
+    print(data_csv.loc[data_csv['Type 1'] == 'Fire'])  # This will filter all the data and display only fire type pokemons.
+
+    print(data_csv.loc[(data_csv['Type 1'] == 'Water') & (data_csv['Type 2'] == 'Poison')])  # This will filter and display all pokemons that are water type and poison type.
+
+    # Filtering through strings:
+    print(data_csv.loc[data_csv['Name'].str.contains('Mega')])
+
+    print(data_csv.loc[~data_csv['Name'].str.contains('Mega')])  # The ~ acts as a 'not'
+
+    # You can utilise regular expressions (import re) to filter elements in your data.
+
+
+def conditional_changes_in_data():
+    print("\n||-------------------------------------CONDITIONAL-CHANGES--------------------------------------------||\n")
+
+    # data_csv = get_csv_data('/Users/kamran/Projects/Machine_Learning_In_Python/Data/pokemon_data.csv')
+    #
+    # data_csv.loc[data_csv['Type 1'] == 'Fire', 'Type 1'] = 'Flamer'  # This will change Fire to Flamer in Type 1 of the data.
+    #
+    # data_csv.loc[data_csv['Total'] > 500, 'Legendary'] = True  # Conditions like this can be done too.
+
+
+def aggregate_statistics():
+    return
 
 
 if __name__ == "__main__":
