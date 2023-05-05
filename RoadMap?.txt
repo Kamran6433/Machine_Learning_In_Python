@@ -11,9 +11,9 @@ NumPy
 Pandas
 Matplotlib
     Deeplearning Frameworks:
+        PyTorch
         TensorFlow
         Keras
-        PyTorch
 
 4. ML course
 

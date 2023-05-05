@@ -35,7 +35,7 @@ def get_csv_data(file):
 def loading_and_reading_data():
     print("\n||-------------------------------------------LOADING----------------------------------------------||\n")
 
-    # data_txt = pandas.read_csv('/Users/kamran/Projects/Machine_Learning_In_Python/Data/pokemon_data.txt', delimiter='\t')
+    data_csv = pandas.read_csv('/Users/kamran/Projects/Machine_Learning_In_Python/Data/pokemon_data.csv')
     data_xlsx = pandas.read_excel('/Users/kamran/Projects/Machine_Learning_In_Python/Data/pokemon_data.xlsx')
     # print(data_txt.to_string())
     # print(data_csv.to_string())
@@ -49,8 +49,9 @@ def loading_and_reading_data():
 
     # Reading each column:
     print("Reading a specific column:\n", data_xlsx['Name'][0:5])  # This prints out the Name column and the indexes can be specified
-    # print("Reading a specific column:\n", data_xlsx[['Name', 'Type 1', 'HP']][0:5])
-    # print(data_xlsx.Name)  You can also do this
+    print("Reading a specific column:\n", data_xlsx[['Name', 'Type 1', 'HP']][0:5])
+    print(data_xlsx.Name)
+    # You can also do this
 
     #  Reading specific indexes:
     print("Reading specific indexes:\n", data_xlsx.iloc[3])
@@ -67,7 +68,7 @@ def loading_and_reading_data():
     print("\n||-----------------------------------------------------------------------------------------||\n")
 
     # Reading all columns that are specific to something:
-    # print(data_csv.loc[data_csv['Type 1'] == 'Fire'])  I do not know why this does not work.
+    print(data_csv.loc[data_csv['Type 1'] == 'Fire'])
 
 
 def sorting_and_describing_data():
@@ -136,12 +137,12 @@ def filtering_data():
 def conditional_changes_in_data():
     print("\n||-------------------------------------CONDITIONAL-CHANGES--------------------------------------------||\n")
 
-    # data_csv = get_csv_data('/Users/kamran/Projects/Machine_Learning_In_Python/Data/pokemon_data.csv')
-    #
-    # data_csv.loc[data_csv['Type 1'] == 'Fire', 'Type 1'] = 'Flamer'  # This will change Fire to Flamer in Type 1 of the data.
-    #
-    # data_csv.loc[data_csv['Total'] > 500, 'Legendary'] = True  # Conditions like this can be done too.
+    data_csv = get_csv_data('/Users/kamran/Projects/Machine_Learning_In_Python/new_pokemon.csv')
 
+    data_csv.loc[data_csv['Type 1'] == 'Fire', 'Type 1'] = 'Flamer'  # This will change Fire to Flamer in Type 1 of the data.
+
+    data_csv.loc[data_csv['Total'] > 500, 'Legendary'] = True  # Conditions like this can be done too.
+    print(data_csv)
 
 def aggregate_statistics():
     return
